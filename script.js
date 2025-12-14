@@ -531,7 +531,7 @@ function updateNowPlayingUI(track) {
     if (!track) {
         // Если трек не выбран
         if (nowPlayingCard) nowPlayingCard.classList.add('empty');
-        if (currentCoverImg) currentCoverImg.src = 'images/default-cover.jpg';
+        if (currentCoverImg) currentCoverImg.src = 'images/default-cover.svg';
         if (currentTrackTitle) currentTrackTitle.textContent = 'Выберите трек для воспроизведения';
         if (currentTrackArtist) currentTrackArtist.textContent = '—';
         updateGlobalPlayer(null);
@@ -561,7 +561,7 @@ function updateGlobalPlayer(track) {
     if (!track) {
         if (globalTitle) globalTitle.textContent = 'Выберите трек';
         if (globalArtist) globalArtist.textContent = '—';
-        if (globalCover) globalCover.src = 'images/default-cover.jpg';
+        if (globalCover) globalCover.src = 'images/default-cover.svg';
         if (globalTotalTime) globalTotalTime.textContent = '0:00';
         return;
     }

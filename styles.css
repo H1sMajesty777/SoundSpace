@@ -362,16 +362,31 @@ section {
 }
 /* ===== ФИОЛЕТОВЫЙ ФОН С ПИКСЕЛЬНЫМ РАСПАДОМ ===== */
 
+/* Вместо двух блоков - один */
 .now-playing-card {
-    background-color: transparent;
+    background-color: var(--bg-card);
     border-radius: var(--border-radius);
     padding: 0;
-    border: 1px solid rgba(157, 78, 221, 0.3);
+    border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
     min-height: 200px;
+    transition: var(--transition);
     backdrop-filter: blur(10px);
-    background: rgba(24, 24, 24, 0.3);
+}
+
+/* Добавьте для лучшей доступности */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Улучшение для скринридеров */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 /* Базовый фиолетовый градиент */
@@ -908,17 +923,6 @@ section {
 .now-playing-section {
     margin-bottom: 32px;
     position: relative;
-}
-
-.now-playing-card {
-    background-color: var(--bg-card);
-    border-radius: var(--border-radius);
-    padding: 0;
-    border: 1px solid var(--border);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    min-height: 200px;
 }
 
 /* Фоновое изображение с эффектом растворения */

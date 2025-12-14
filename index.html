@@ -99,16 +99,16 @@
                     <p class="hero-subtitle">Топ-треки, которые создают мое настроение</p>
                     <div class="stats">
                         <div class="stat-item">
-                            <span class="stat-number">24</span>
-                            <span class="stat-label">Альбома</span>
+                            <span class="stat-number">17</span>
+                            <span class="stat-label">Альбомов</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">156</span>
+                            <span class="stat-number">17</span>
                             <span class="stat-label">Треков</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">18</span>
-                            <span class="stat-label">Часов</span>
+                            <span class="stat-number">~1</span>
+                            <span class="stat-label">Часа</span>
                         </div>
                     </div>
                 </div>
@@ -128,31 +128,28 @@
                     
                     <div class="now-playing-content">
                         <div class="now-playing-info">
-                            <!-- Обложка трека -->
-                            <div class="track-cover-container">
-                                <img src="images/default-cover.jpg" alt="Текущая обложка" 
-                                    width="100" height="100" loading="eager" id="current-cover-img">
+                            <!-- Обложка трека (скрыта по умолчанию) -->
+                            <div class="track-cover-container hidden" id="track-cover-container">
+                                <img src="" alt="" width="100" height="100" loading="lazy" id="current-cover-img">
                                 <div class="vinyl-ring"></div>
                             </div>
                             
                             <div class="track-details">
-                                <h3 class="track-title" id="current-track-title">Выберите трек для воспроизведения</h3>
-                                <p class="track-artist" id="current-track-artist">—</p>
+                                <h3 class="track-title" id="current-track-title">Нажмите на любой трек для воспроизведения</h3>
+                                <p class="track-artist" id="current-track-artist">Здесь появится исполнитель</p>
                                 
                                 <div class="progress-container" id="now-playing-progress">
-                                    <div class="progress-container" id="now-playing-progress">
-                                        <div class="progress-bar" 
-                                            role="progressbar" 
-                                            aria-valuemin="0" 
-                                            aria-valuemax="100" 
-                                            aria-valuenow="0"
-                                            aria-label="Прогресс воспроизведения трека">
-                                            <div class="progress-fill" id="now-playing-progress-fill"></div>
-                                        </div>
-                                        <div class="time-display">
-                                            <span class="current-time" id="current-time">0:00</span>
-                                            <span class="total-time" id="total-time">0:00</span>
-                                        </div>
+                                    <div class="progress-bar" 
+                                        role="progressbar" 
+                                        aria-valuemin="0" 
+                                        aria-valuemax="100" 
+                                        aria-valuenow="0"
+                                        aria-label="Прогресс воспроизведения трека">
+                                        <div class="progress-fill" id="now-playing-progress-fill"></div>
+                                    </div>
+                                    <div class="time-display">
+                                        <span class="current-time" id="current-time">0:00</span>
+                                        <span class="total-time" id="total-time">0:00</span>
                                     </div>
                                 </div>
                             </div>
@@ -1175,7 +1172,7 @@
             <!-- Глобальный аудиоплеер (фиксированный внизу) -->
             <footer class="global-player" role="contentinfo">
                 <div class="player-track-info">
-                    <img src="images/default-cover.jpg" alt="Текущая обложка" width="40" height="40" id="global-cover">
+                    <img src="images/default-cover.svg" alt="Текущая обложка" width="40" height="40" id="global-cover">
                     <div>
                         <h4 class="player-track-title" id="global-track-title">Выберите трек</h4>
                         <p class="player-track-artist" id="global-track-artist">—</p>
