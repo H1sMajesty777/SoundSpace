@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Моя музыкальная коллекция - топ треков с превью">
+    <title>SoundSpace | Мои топ-треки</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Пропуск для доступности -->
+    <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
+    <!-- Основной контейнер -->
+    <div class="container">
+        <!-- Боковая панель (десктоп) -->
+        <aside class="sidebar" aria-label="Основная навигация">
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <h1>SoundSpace</h1>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="#" class="nav-link active" aria-current="page">
+                            <i class="fas fa-home"></i>
+                            <span>Главная</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#library" class="nav-link">
+                            <i class="fas fa-compact-disc"></i>
+                            <span>Коллекция</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#favorites" class="nav-link">
+                            <i class="fas fa-heart"></i>
+                            <span>Избранное</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#playlists" class="nav-link">
+                            <i class="fas fa-list"></i>
+                            <span>Плейлисты</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#search" class="nav-link">
+                            <i class="fas fa-search"></i>
+                            <span>Поиск</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="user-playlists">
+                <h2>Мои плейлисты</h2>
+                <ul class="playlist-list">
+                    <li><a href="#" class="playlist-link">Топ 2024</a></li>
+                    <li><a href="#" class="playlist-link">Для работы</a></li>
+                    <li><a href="#" class="playlist-link">Релакс</a></li>
+                    <li><a href="#" class="playlist-link">Энергия</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Основной контент -->
+        <main id="main-content" class="main-content">
+            <!-- Шапка -->
+            <header class="header">
+                <div class="header-controls">
+                    <button class="nav-toggle" aria-label="Переключить навигацию">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="search" placeholder="Искать треки, альбомы, исполнителей..." 
+                                aria-label="Поиск по музыке">
+                    </div>
+                </div>
+                <div class="user-info">
+                    <button class="user-btn" aria-label="Профиль пользователя">
+                        <i class="fas fa-user"></i>
+                        <span>Профиль</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Приветственная секция -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2 class="hero-title">Добро пожаловать в мою музыкальную вселенную</h2>
+                    <p class="hero-subtitle">Топ-треки, которые создают мое настроение</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">24</span>
+                            <span class="stat-label">Альбома</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">156</span>
+                            <span class="stat-label">Треков</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">18</span>
+                            <span class="stat-label">Часов</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Раздел "Сейчас играет" -->
+            <section class="now-playing-section" aria-labelledby="now-playing-title">
+                <h2 id="now-playing-title" class="section-title">
+                    <i class="fas fa-play-circle"></i> Сейчас играет
+                </h2>
+                <div class="now-playing-card" id="now-playing-card">
+                    <!-- Фиолетовый фон с эффектом распада -->
+                    <div class="pixel-gradient-background" id="pixel-background">
+                        <div class="gradient-base"></div>
+                        <div class="pixel-overlay"></div>
+                    </div>
+                    
+                    <div class="now-playing-content">
+                        <div class="now-playing-info">
+                            <!-- Обложка трека -->
+                            <div class="track-cover-container">
+                                <img src="images/default-cover.jpg" alt="Текущая обложка" 
+                                    width="100" height="100" loading="eager" id="current-cover-img">
+                                <div class="vinyl-ring"></div>
+                            </div>
+                            
+                            <div class="track-details">
+                                <h3 class="track-title" id="current-track-title">Выберите трек для воспроизведения</h3>
+                                <p class="track-artist" id="current-track-artist">—</p>
+                                
+                                <div class="progress-container" id="now-playing-progress">
+                                    <div class="progress-container" id="now-playing-progress">
+                                        <div class="progress-bar" 
+                                            role="progressbar" 
+                                            aria-valuemin="0" 
+                                            aria-valuemax="100" 
+                                            aria-valuenow="0"
+                                            aria-label="Прогресс воспроизведения трека">
+                                            <div class="progress-fill" id="now-playing-progress-fill"></div>
+                                        </div>
+                                        <div class="time-display">
+                                            <span class="current-time" id="current-time">0:00</span>
+                                            <span class="total-time" id="total-time">0:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="player-controls">
+                            <button class="control-btn" id="prev-btn" aria-label="Предыдущий трек">
+                                <i class="fas fa-step-backward"></i>
+                            </button>
+                            <button class="control-btn play-btn" id="play-pause-btn" aria-label="Воспроизвести">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="control-btn" id="next-btn" aria-label="Следующий трек">
+                                <i class="fas fa-step-forward"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Сетка треков -->
+            <section class="tracks-section" aria-labelledby="tracks-title">
+                <div class="section-header">
+                    <h2 id="tracks-title" class="section-title">Мои топ-треки</h2>
+                    <div class="section-filters">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="russian rap">Русский рэп</button>
+                        <button class="filter-btn" data-filter="trap">Трэп</button>
+                        <button class="filter-btn" data-filter="hip hop">Хип-хоп</button>
+                        <button class="filter-btn" data-filter="emo rap">Эмо-рэп</button>
+                        <button class="filter-btn" data-filter="hyperpop">Хайперпоп</button>
+                    </div>
+                </div>
+
+                <div class="tracks-grid">
+                    <!-- Трек 1: KRISTIEE - романтик -->
+                    <article class="track-card" data-genre="russian rap" data-id="1">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/kristiee-romantik.jpg" 
+                                    srcset="images/kristiee-romantik.jpg 600w, images/kristiee-romantik-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: KRISTIEE - романтик"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести романтик - KRISTIEE">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">1</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">романтик</h3>
+                                <p class="track-artist">KRISTIEE</p>
+                                <p class="track-album">романтик • 2023</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека романтик - KRISTIEE">
+                                    <source src="audio/kristiee-romantik.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:15</span>
+                                    <span class="track-rating" title="4.9 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 2: Темный принц - вклубе -->
+                    <article class="track-card" data-genre="russian rap" data-id="2">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/temnyj-princ-vklube.jpg" 
+                                    srcset="images/temnyj-princ-vklube.jpg 600w, images/temnyj-princ-vklube-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: Темный принц - вклубе"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести вклубе - Темный принц">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">2</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">вклубе</h3>
+                                <p class="track-artist">Темный принц</p>
+                                <p class="track-album">вклубе • 2022</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека вклубе - Темный принц">
+                                    <source src="audio/temnyj-princ-vklube.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:30</span>
+                                    <span class="track-rating" title="4.7 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 3: Kai Angel - damage -->
+                    <article class="track-card" data-genre="russian rap" data-id="3">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/kai-angel-damage.jpg" 
+                                    srcset="images/kai-angel-damage.jpg 600w, images/kai-angel-damage-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: Kai Angel - damage"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести damage - Kai Angel">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">3</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">damage</h3>
+                                <p class="track-artist">Kai Angel</p>
+                                <p class="track-album">damage • 2023</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека damage - Kai Angel">
+                                    <source src="audio/kai-angel-damage.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:45</span>
+                                    <span class="track-rating" title="4.6 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 4: LuvFaygo! - Фонари -->
+                    <article class="track-card" data-genre="russian rap" data-id="4">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/luvfaygo-fonari.jpg" 
+                                    srcset="images/luvfaygo-fonari.jpg 600w, images/luvfaygo-fonari-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: LuvFaygo! - Фонари"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести Фонари - LuvFaygo!">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">4</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">Фонари</h3>
+                                <p class="track-artist">LuvFaygo!</p>
+                                <p class="track-album">Фонари • 2023</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека Фонари - LuvFaygo!">
+                                    <source src="audio/luvfaygo-fonari.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:20</span>
+                                    <span class="track-rating" title="4.5 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 5: madk1d - ты че обиделась -->
+                    <article class="track-card" data-genre="russian rap" data-id="5">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/madk1d-ty-che-obidelas.jpg" 
+                                    srcset="images/madk1d-ty-che-obidelas.jpg 600w, images/madk1d-ty-che-obidelas-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: madk1d - ты че обиделась"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести ты че обиделась - madk1d">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">5</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">ты че обиделась</h3>
+                                <p class="track-artist">madk1d</p>
+                                <p class="track-album">ты че обиделась • 2023</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека ты че обиделась - madk1d">
+                                    <source src="audio/madk1d-ty-che-obidelas.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:10</span>
+                                    <span class="track-rating" title="4.7 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 6: Miyagi & Эндшпиль - Люби меня -->
+                    <article class="track-card" data-genre="russian rap" data-id="6">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/miyagi-endspiel-lyubi-menya.jpg" 
+                                    srcset="images/miyagi-endspiel-lyubi-menya.jpg 600w, images/miyagi-endspiel-lyubi-menya-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: Miyagi & Эндшпиль - Люби меня"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести Люби меня - Miyagi & Эндшпиль">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">6</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">Люби меня</h3>
+                                <p class="track-artist">Miyagi & Эндшпиль</p>
+                                <p class="track-album">Buster Keaton • 2021</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека Люби меня - Miyagi & Эндшпиль">
+                                    <source src="audio/miyagi-endspiel-lyubi-menya.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">4:05</span>
+                                    <span class="track-rating" title="4.9 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 7: Big Baby Tape, Aarne, Платина - EDM -->
+                    <article class="track-card" data-genre="russian rap" data-id="7">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/tape-aarne-platina-edm.jpg" 
+                                    srcset="images/tape-aarne-platina-edm.jpg 600w, images/tape-aarne-platina-edm-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: Big Baby Tape, Aarne, Платина - EDM"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести EDM - Big Baby Tape, Aarne, Платина">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">7</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">EDM</h3>
+                                <p class="track-artist">Big Baby Tape, Aarne, Платина</p>
+                                <p class="track-album">EDM • 2023</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека EDM - Big Baby Tape, Aarne, Платина">
+                                    <source src="audio/tape-aarne-platina-edm.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:35</span>
+                                    <span class="track-rating" title="4.8 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 8: kizaru - Дежавю -->
+                    <article class="track-card" data-genre="russian rap" data-id="8">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/kizaru-dezhavyu.jpg" 
+                                    srcset="images/kizaru-dezhavyu.jpg 600w, images/kizaru-dezhavyu-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: kizaru - Дежавю"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести Дежавю - kizaru">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">8</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">Дежавю</h3>
+                                <p class="track-artist">kizaru</p>
+                                <p class="track-album">Дежавю • 2020</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека Дежавю - kizaru">
+                                    <source src="audio/kizaru-dezhavyu.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">3:20</span>
+                                    <span class="track-rating" title="4.5 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 9: ICEGERGERT - Hoodtrapstar -->
+                    <article class="track-card" data-genre="trap" data-id="9">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/icegergert-hoodtrapstar.jpg" 
+                                    srcset="images/icegergert-hoodtrapstar.jpg 600w, images/icegergert-hoodtrapstar-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: ICEGERGERT - Hoodtrapstar"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести Hoodtrapstar - ICEGERGERT">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">9</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">Hoodtrapstar</h3>
+                                <p class="track-artist">ICEGERGERT</p>
+                                <p class="track-album">Hoodtrapstar • 2022</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека Hoodtrapstar - ICEGERGERT">
+                                    <source src="audio/icegergert-hoodtrapstar.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:25</span>
+                                    <span class="track-rating" title="4.3 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 10: Juice WRLD - Lucid Dreams -->
+                    <article class="track-card" data-genre="emo rap" data-id="10">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/juice-wrld-lucid-dreams.jpg" 
+                                    srcset="images/juice-wrld-lucid-dreams.jpg 600w, images/juice-wrld-lucid-dreams-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: Juice WRLD - Lucid Dreams"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести Lucid Dreams - Juice WRLD">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">10</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">Lucid Dreams</h3>
+                                <p class="track-artist">Juice WRLD</p>
+                                <p class="track-album">Goodbye & Good Riddance • 2018</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека Lucid Dreams - Juice WRLD">
+                                    <source src="audio/juice-wrld-lucid-dreams.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">3:59</span>
+                                    <span class="track-rating" title="5.0 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 11: Eminem - Mockingbird -->
+                    <article class="track-card" data-genre="hip hop" data-id="11">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/eminem-mockingbird.jpg" 
+                                    srcset="images/eminem-mockingbird.jpg 600w, images/eminem-mockingbird-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: Eminem - Mockingbird"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести Mockingbird - Eminem">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">11</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">Mockingbird</h3>
+                                <p class="track-artist">Eminem</p>
+                                <p class="track-album">Encore • 2004</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека Mockingbird - Eminem">
+                                    <source src="audio/eminem-mockingbird.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">4:11</span>
+                                    <span class="track-rating" title="5.0 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 12: Travis Scott - Goosebumps -->
+                    <article class="track-card" data-genre="trap" data-id="12">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/travis-scott-goosebumps.jpg" 
+                                    srcset="images/travis-scott-goosebumps.jpg 600w, images/travis-scott-goosebumps-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: Travis Scott - Goosebumps"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести Goosebumps - Travis Scott">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">12</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">Goosebumps</h3>
+                                <p class="track-artist">Travis Scott</p>
+                                <p class="track-album">Birds in the Trap Sing McKnight • 2016</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека Goosebumps - Travis Scott">
+                                    <source src="audio/travis-scott-goosebumps.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">4:04</span>
+                                    <span class="track-rating" title="4.9 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 13: Pepel Nahudi - Целую -->
+                    <article class="track-card" data-genre="russian rap" data-id="13">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/pepel-nahudi-celuyu.jpg" 
+                                    srcset="images/pepel-nahudi-celuyu.jpg 600w, images/pepel-nahudi-celuyu-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: Pepel Nahudi - Целую"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести Целую - Pepel Nahudi">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">13</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">Целую</h3>
+                                <p class="track-artist">Pepel Nahudi</p>
+                                <p class="track-album">Целую • 2023</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека Целую - Pepel Nahudi">
+                                    <source src="audio/pepel-nahudi-celuyu.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:15</span>
+                                    <span class="track-rating" title="4.8 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 14: REMINI - 2027 -->
+                    <article class="track-card" data-genre="russian rap" data-id="14">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/remini-2027.jpg" 
+                                    srcset="images/remini-2027.jpg 600w, images/remini-2027-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: REMINI - 2027"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести 2027 - REMINI">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">14</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">2027</h3>
+                                <p class="track-artist">REMINI</p>
+                                <p class="track-album">2027 • 2023</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека 2027 - REMINI">
+                                    <source src="audio/remini-2027.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:30</span>
+                                    <span class="track-rating" title="4.7 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 15: Ваня Дмитриенко - Шёлк -->
+                    <article class="track-card" data-genre="russian rap" data-id="15">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/vanya-dmitrienko-shyolk.jpg" 
+                                    srcset="images/vanya-dmitrienko-shyolk.jpg 600w, images/vanya-dmitrienko-shyolk-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: Ваня Дмитриенко - Шёлк"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести Шёлк - Ваня Дмитриенко">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">15</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">Шёлк</h3>
+                                <p class="track-artist">Ваня Дмитриенко</p>
+                                <p class="track-album">Шёлк • 2023</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека Шёлк - Ваня Дмитриенко">
+                                    <source src="audio/vanya-dmitrienko-shyolk.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:40</span>
+                                    <span class="track-rating" title="4.8 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 16: 2hollis - poster boy -->
+                    <article class="track-card" data-genre="hyperpop" data-id="16">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/2hollis-poster-boy.jpg" 
+                                    srcset="images/2hollis-poster-boy.jpg 600w, images/2hollis-poster-boy-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: 2hollis - poster boy"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести poster boy - 2hollis">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">16</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">poster boy</h3>
+                                <p class="track-artist">2hollis</p>
+                                <p class="track-album">poster boy • 2022</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека poster boy - 2hollis">
+                                    <source src="audio/2hollis-poster-boy.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:15</span>
+                                    <span class="track-rating" title="5.0 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Трек 17: Baby Cute, OG Buda - shock -->
+                    <article class="track-card" data-genre="russian rap" data-id="17">
+                        <div class="track-card-inner">
+                            <div class="track-cover-container">
+                                <img src="images/baby-cute-og-buda-shock.jpg" 
+                                    srcset="images/baby-cute-og-buda-shock.jpg 600w, images/baby-cute-og-buda-shock-thumb.jpg 300w"
+                                    sizes="(max-width: 768px) 300px, 600px"
+                                    alt="Обложка: Baby Cute, OG Buda - shock"
+                                    class="track-cover" width="300" height="300" loading="lazy">
+                                <button class="play-overlay-btn" aria-label="Воспроизвести shock - Baby Cute, OG Buda">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="track-number">17</div>
+                            </div>
+                            
+                            <div class="track-info">
+                                <h3 class="track-title">shock</h3>
+                                <p class="track-artist">Baby Cute, OG Buda</p>
+                                <p class="track-album">shock • 2023</p>
+                                
+                                <audio class="audio-preview" preload="none" 
+                                    aria-label="Аудиопревью трека shock - Baby Cute, OG Buda">
+                                    <source src="audio/baby-cute-og-buda-shock.mp3" type="audio/mpeg">
+                                    Ваш браузер не поддерживает аудио элемент.
+                                </audio>
+                                
+                                <div class="track-controls">
+                                    <button class="track-btn like-btn" aria-label="Добавить в избранное">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="track-btn play-track-btn" aria-label="Воспроизвести">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="track-btn more-btn" aria-label="Еще опции">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="track-meta">
+                                    <span class="track-duration">2:20</span>
+                                    <span class="track-rating" title="4.8 из 5">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="tracks-footer">
+                    <p class="tracks-count">Показано <span id="shown-count">17</span> из 17 треков</p>
+                    <button class="load-more-btn" style="display: none;">Загрузить еще</button>
+                </div>
+            </section>
+                </div>
+                
+                <!-- После секции с треками, перед футером -->
+                <section class="stats-section" aria-labelledby="stats-title">
+                    <h2 id="stats-title" class="section-title">
+                        <i class="fas fa-chart-line"></i> Моя статистика
+                    </h2>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-title">Всего прослушиваний</h3>
+                                <p class="stat-number" id="total-plays">0</p>
+                                <p class="stat-change">+0 за сегодня</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-title">Время прослушивания</h3>
+                                <p class="stat-number" id="total-time">0 мин</p>
+                                <p class="stat-change">≈ 0 часов</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-title">Любимый трек</h3>
+                                <p class="stat-track" id="top-track">Ещё нет данных</p>
+                                <p class="stat-count">0 прослушиваний</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 class="stat-title">Средний рейтинг</h3>
+                                <p class="stat-number" id="avg-rating">0.0</p>
+                                <p class="stat-change">из 5.0</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Детальная статистика -->
+                    <div class="detailed-stats">
+                        <h3 class="stats-subtitle">Топ-5 треков</h3>
+                        <div class="top-tracks-list" id="top-tracks-list">
+                            <!-- Будет заполняться JavaScript -->
+                        </div>
+                        
+                        <div class="stats-charts">
+                            <div class="chart-container">
+                                <h4>По жанрам</h4>
+                                <div class="genre-chart" id="genre-chart">
+                                    <!-- Диаграмма жанров -->
+                                </div>
+                            </div>
+                            
+                            <div class="chart-container">
+                                <h4>По годам</h4>
+                                <div class="year-chart" id="year-chart">
+                                    <!-- Диаграмма по годам -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-controls">
+                        <button class="stats-btn" id="reset-stats">
+                            <i class="fas fa-redo"></i> Сбросить статистику
+                        </button>
+                        <button class="stats-btn" id="export-stats">
+                            <i class="fas fa-download"></i> Экспорт данных
+                        </button>
+                    </div>
+                </section>
+
+                <div class="tracks-footer">
+                    <p class="tracks-count">Показано <span id="shown-count">8</span> из 24 треков</p>
+                    <button class="load-more-btn">Загрузить еще</button>
+                </div>
+            </section>
+
+            <!-- Глобальный аудиоплеер (фиксированный внизу) -->
+            <footer class="global-player" role="contentinfo">
+                <div class="player-track-info">
+                    <img src="images/default-cover.jpg" alt="Текущая обложка" width="40" height="40" id="global-cover">
+                    <div>
+                        <h4 class="player-track-title" id="global-track-title">Выберите трек</h4>
+                        <p class="player-track-artist" id="global-track-artist">—</p>
+                    </div>
+                    <button class="player-like-btn" aria-label="Добавить в избранное">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                
+                <div class="player-main-controls">
+                    <div class="player-buttons">
+                        <button class="player-control-btn" id="global-shuffle" aria-label="Перемешать">
+                            <i class="fas fa-random"></i>
+                        </button>
+                        <button class="player-control-btn" id="global-prev" aria-label="Предыдущий трек">
+                            <i class="fas fa-step-backward"></i>
+                        </button>
+                        <button class="player-control-btn play-btn" id="global-play" aria-label="Воспроизвести/пауза">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="player-control-btn" id="global-next" aria-label="Следующий трек">
+                            <i class="fas fa-step-forward"></i>
+                        </button>
+                        <button class="player-control-btn" id="global-repeat" aria-label="Повтор">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="player-progress">
+                        <span class="player-time" id="global-current-time">0:00</span>
+                        <div class="player-progress-bar" role="slider" aria-label="Прогресс трека"
+                            tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="global-progress-bar">
+                            <div class="player-progress-fill" id="global-progress-fill"></div>
+                        </div>
+                        <span class="player-time" id="global-total-time">0:00</span>
+                    </div>
+                </div>
+                
+                <div class="player-extra-controls">
+                    <button class="extra-control-btn" aria-label="Добавить в очередь">
+                        <i class="fas fa-list-ol"></i>
+                    </button>
+                    <button class="extra-control-btn" aria-label="Текст трека">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="extra-control-btn" aria-label="Настройки">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <div class="volume-control">
+                        <button class="volume-btn" aria-label="Отключить звук">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <div class="volume-slider" role="slider" aria-label="Громкость"
+                            tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" id="volume-slider">
+                            <div class="volume-fill" id="volume-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Модальное окно для деталей трека -->
+    <div class="modal-overlay" id="track-modal" aria-hidden="true" role="dialog" aria-modal="false">
+        <div class="modal-content" role="document">
+            <button class="modal-close" aria-label="Закрыть окно">&times;</button>
+            <div class="modal-body">
+                <!-- Контент будет заполняться JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
