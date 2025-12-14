@@ -130,7 +130,7 @@
                         <div class="now-playing-info">
                             <!-- Обложка трека (скрыта по умолчанию) -->
                             <div class="track-cover-container hidden" id="track-cover-container">
-                                <img src="" alt="" width="100" height="100" loading="lazy" id="current-cover-img">
+                                <img src="images/default-cover.svg" alt="Обложка трека" width="100" height="100" loading="lazy" id="current-cover-img">
                                 <div class="vinyl-ring"></div>
                             </div>
                             
@@ -149,7 +149,7 @@
                                     </div>
                                     <div class="time-display">
                                         <span class="current-time" id="current-time">0:00</span>
-                                        <span class="total-time" id="total-time">0:00</span>
+                                        <span class="total-time" id="now-playing-total-time">0:00</span>
                                     </div>
                                 </div>
                             </div>
@@ -1075,102 +1075,95 @@
                     <button class="load-more-btn" style="display: none;">Загрузить еще</button>
                 </div>
             </section>
+
+            <!-- Секция статистики -->
+            <section class="stats-section" aria-labelledby="stats-title">
+                <h2 id="stats-title" class="section-title">
+                    <i class="fas fa-chart-line"></i> Моя статистика
+                </h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">Всего прослушиваний</h3>
+                            <p class="stat-number" id="total-plays">0</p>
+                            <p class="stat-change">+0 за сегодня</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">Время прослушивания</h3>
+                            <p class="stat-number" id="total-minutes">0 мин</p>
+                            <p class="stat-change">≈ 0 часов</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">Любимый трек</h3>
+                            <p class="stat-track" id="top-track">Ещё нет данных</p>
+                            <p class="stat-count">0 прослушиваний</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">Средний рейтинг</h3>
+                            <p class="stat-number" id="avg-rating">0.0</p>
+                            <p class="stat-change">из 5.0</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- После секции с треками, перед футером -->
-                <section class="stats-section" aria-labelledby="stats-title">
-                    <h2 id="stats-title" class="section-title">
-                        <i class="fas fa-chart-line"></i> Моя статистика
-                    </h2>
+                <!-- Детальная статистика -->
+                <div class="detailed-stats">
+                    <h3 class="stats-subtitle">Топ-5 треков</h3>
+                    <div class="top-tracks-list" id="top-tracks-list">
+                        <!-- Будет заполняться JavaScript -->
+                    </div>
                     
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-play-circle"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3 class="stat-title">Всего прослушиваний</h3>
-                                <p class="stat-number" id="total-plays">0</p>
-                                <p class="stat-change">+0 за сегодня</p>
+                    <div class="stats-charts">
+                        <div class="chart-container">
+                            <h4>По жанрам</h4>
+                            <div class="genre-chart" id="genre-chart">
+                                <!-- Диаграмма жанров -->
                             </div>
                         </div>
                         
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3 class="stat-title">Время прослушивания</h3>
-                                <p class="stat-number" id="total-time">0 мин</p>
-                                <p class="stat-change">≈ 0 часов</p>
-                            </div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3 class="stat-title">Любимый трек</h3>
-                                <p class="stat-track" id="top-track">Ещё нет данных</p>
-                                <p class="stat-count">0 прослушиваний</p>
-                            </div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h3 class="stat-title">Средний рейтинг</h3>
-                                <p class="stat-number" id="avg-rating">0.0</p>
-                                <p class="stat-change">из 5.0</p>
+                        <div class="chart-container">
+                            <h4>По годам</h4>
+                            <div class="year-chart" id="year-chart">
+                                <!-- Диаграмма по годам -->
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Детальная статистика -->
-                    <div class="detailed-stats">
-                        <h3 class="stats-subtitle">Топ-5 треков</h3>
-                        <div class="top-tracks-list" id="top-tracks-list">
-                            <!-- Будет заполняться JavaScript -->
-                        </div>
-                        
-                        <div class="stats-charts">
-                            <div class="chart-container">
-                                <h4>По жанрам</h4>
-                                <div class="genre-chart" id="genre-chart">
-                                    <!-- Диаграмма жанров -->
-                                </div>
-                            </div>
-                            
-                            <div class="chart-container">
-                                <h4>По годам</h4>
-                                <div class="year-chart" id="year-chart">
-                                    <!-- Диаграмма по годам -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="stats-controls">
-                        <button class="stats-btn" id="reset-stats">
-                            <i class="fas fa-redo"></i> Сбросить статистику
-                        </button>
-                        <button class="stats-btn" id="export-stats">
-                            <i class="fas fa-download"></i> Экспорт данных
-                        </button>
-                    </div>
-                </section>
-
-                <div class="tracks-footer">
-                    <p class="tracks-count">Показано <span id="shown-count">8</span> из 24 треков</p>
-                    <button class="load-more-btn">Загрузить еще</button>
+                </div>
+                
+                <div class="stats-controls">
+                    <button class="stats-btn" id="reset-stats">
+                        <i class="fas fa-redo"></i> Сбросить статистику
+                    </button>
+                    <button class="stats-btn" id="export-stats">
+                        <i class="fas fa-download"></i> Экспорт данных
+                    </button>
                 </div>
             </section>
 
             <!-- Глобальный аудиоплеер (фиксированный внизу) -->
-            <footer class="global-player" role="contentinfo">
+            <footer class="global-player">
                 <div class="player-track-info">
                     <img src="images/default-cover.svg" alt="Текущая обложка" width="40" height="40" id="global-cover">
                     <div>
